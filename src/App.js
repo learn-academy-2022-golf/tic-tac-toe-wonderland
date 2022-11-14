@@ -14,7 +14,12 @@ const App = () => {
     let updatedSquares = [...squares];
 
     if(user==="X"){
-    updatedSquares[index] = "X"}
+    updatedSquares[index] = "X"
+    setUser("O")
+  } else if(user==="O") {
+    updatedSquares[index] = "O"
+    setUser("X")
+  }
     setSquares(updatedSquares)
   }
 
