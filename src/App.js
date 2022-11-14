@@ -13,7 +13,9 @@ const App = () => {
   const gamePlay = (index) => {
     let updatedSquares = [...squares];
 
-    if(user==="X"){
+    if(updatedSquares[index] !== ""){
+      alert("please choose another box")
+  } else if(user==="X"){
     updatedSquares[index] = "X"
     setUser("O")
   } else if(user==="O") {
