@@ -8,12 +8,22 @@ const App = () => {
 
   const [squares, setSquares] = useState(emptyArray);
 
+  const [user, setUser] = useState("X")
+
+  const gamePlay = (index) => {
+    let updatedSquares = [...squares];
+
+    if(user==="X"){
+    updatedSquares[index] = "X"}
+    setSquares(updatedSquares)
+  }
+
   return (
     <>
       <h1>Tic Tac Toe</h1>
       <div className="gameboard">
-      {squares.map(value => {
-        return <Square value={value}/>
+      {squares.map((value, index) => {
+        return <Square value={value} gamePlay={gamePlay} key={index} index={index}/>
       })}
       </div>
     </>
