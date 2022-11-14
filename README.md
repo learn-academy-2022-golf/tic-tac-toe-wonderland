@@ -21,8 +21,8 @@ setup a function to switch user from X to O and back, using an if statement
 
 setup a copy of the array "squares" so we can modify individual elements in that array
 
-- As a user, my partner can click on a square after me and see their mark.
-- As a user, I can't click on a square that has already been marked.
+✅ As a user, my partner can click on a square after me and see their mark.
+✅ As a user, I can't click on a square that has already been marked.
 - As a user, when either my partner or I win the game (three squares in a row: horizontally, vertically, or diagonally) I can see a notice telling me which player won.
 - As a user, I can't continue playing the game after the game has been won.
 - As a user, if there are no more squares available, I can see a notice telling me that the game has ended.
