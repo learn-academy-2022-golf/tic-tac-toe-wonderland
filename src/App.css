@@ -20,7 +20,11 @@ h1 {
   text-align: center;
   color: beige;
   font-family: 'Fredoka One', cursive;
+
+  font-size: 60px;
+
   font-size: 100px;
+
 }
 
 .gameboard {
