@@ -3,7 +3,7 @@ import React from "react";
 const Square = (props) => {
   const handleClick = () => {
     props.gamePlay(props.index);
-    console.log(props.index)
+    props.checkWinner(props.index);
   };
 
   return (

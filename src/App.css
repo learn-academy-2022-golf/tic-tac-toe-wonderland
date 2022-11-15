@@ -4,9 +4,15 @@
   border: 2px solid black;
 }
 
+h1 {
+  text-align: center;
+}
+
 .gameboard {
   display: flex;
-flex-wrap: wrap;
-width: 330px;
-
+  flex-wrap: wrap;
+  width: 330px;
+  margin: 0 auto;
+  font-size: 75px;
+  text-align: center;
 }
