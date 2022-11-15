@@ -23,7 +23,7 @@ setup a copy of the array "squares" so we can modify individual elements in that
 
 ✅ As a user, my partner can click on a square after me and see their mark.
 ✅ As a user, I can't click on a square that has already been marked.
-- As a user, when either my partner or I win the game (three squares in a row: horizontally, vertically, or diagonally) I can see a notice telling me which player won.
+✅  As a user, when either my partner or I win the game (three squares in a row: horizontally, vertically, or diagonally) I can see a notice telling me which player won.
 
 within the game play function, check to see if certain conditions are met after the array is updated
 set up an array, including all the "lines" that you can win on.
@@ -31,14 +31,14 @@ set up a for loop which iterates through all the winning conditions, and see if 
 if any conditions are met, return an alert with a statemnt about the winner
 
 
-- As a user, I can't continue playing the game after the game has been won.
-- As a user, if there are no more squares available, I can see a notice telling me that the game has ended.
-- As a user, I can click on a restart button that will clear the game board.
+✅  As a user, I can't continue playing the game after the game has been won.
+✅ As a user, if there are no more squares available, I can see a notice telling me that the game has ended.
+✅ As a user, I can click on a restart button that will clear the game board.
 
 ### 🏔 Stretch Goals
 
-- As a user, I can see a pleasant stylings on the application.
-- As a user, I can see a notification that informs me whether it is currently my partner or my turn.
+✅ As a user, I can see a pleasant stylings on the application.
+✅As a user, I can see a notification that informs me whether it is currently my partner or my turn.
 - As a user, I can choose my marker from a predetermined list (X, O, a color, an emoji, etc...).
 
 ### 👩‍💻 Developer Stretch Goals

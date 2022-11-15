@@ -10,6 +10,7 @@ const App = () => {
 
   const [user1Mark, setuser1Mark] = useState("X");
 
+
   const [user2Mark, setuser2Mark] = useState("O");
 
   const [user, setUser] = useState(user1Mark);
@@ -27,11 +28,16 @@ const App = () => {
       [0, 4, 8],
       [2, 4, 6],
     ];
+
     if (array.includes("") === false) {
+
+     if (array.includes("") === false) {
+
       setWinner("Tie game! No moves left.");
     }
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
+
       if (
         array[a] === user1Mark &&
         array[b] === user1Mark &&
@@ -44,12 +50,19 @@ const App = () => {
         array[c] === user2Mark
       ) {
         setWinner(`${user2Mark} is the winner!`);
+
+      if (array[a] === "X" && array[b] === "X" && array[c] === "X") {
+        setWinner("X is the winner!");
+      } else if (array[a] === "O" && array[b] === "O" && array[c] === "O") {
+        setWinner("O is the winner!");
+
       }
     }
   };
 
   const refresh = () => {
     setSquares(emptyArray);
+
     setUser(user1Mark);
     setWinner("");
   };
@@ -68,10 +81,23 @@ const App = () => {
     let updatedSquares = [...squares];
     if (winner !== "") {
       alert("This game is over! Please click Restart to start a new game.");
+
+    setUser("X");
+    setWinner("");
+  };
+
+  const gamePlay = (index) => {
+    let updatedSquares = [...squares];
+    if (winner !== "") {
+      alert(
+        "This game is over! Please click Restart to start a new game."
+      );
+
     } else if (updatedSquares.includes("") === false) {
       setWinner("Tie game! No moves left.");
     } else if (updatedSquares[index] !== "") {
       alert("Oops! Please choose another box");
+
     } else if (user === user1Mark) {
       updatedSquares[index] = user1Mark;
       setUser(user2Mark);
@@ -79,6 +105,15 @@ const App = () => {
     } else if (user === user2Mark) {
       updatedSquares[index] = user2Mark;
       setUser(user1Mark);
+
+    } else if (user === "X") {
+      updatedSquares[index] = "X";
+      setUser("O");
+      setSquares(updatedSquares);
+    } else if (user === "O") {
+      updatedSquares[index] = "O";
+      setUser("X");
+
       setSquares(updatedSquares);
     }
   };
@@ -88,6 +123,7 @@ const App = () => {
   return (
     <>
       <h1>Tic Tac Toe</h1>
+
       <h4> Player 1, choose a mark:</h4>
       <button
         onClick={() => {
@@ -133,6 +169,8 @@ const App = () => {
       >
         🍄
       </button>
+
+
       <p>Your move: {user}</p>
       <div className="gameboard">
         {squares.map((value, index) => {
@@ -142,6 +180,9 @@ const App = () => {
               gamePlay={gamePlay}
               key={index}
               index={index}
+
+              // checkWinner={checkWinner}
+
             />
           );
         })}
