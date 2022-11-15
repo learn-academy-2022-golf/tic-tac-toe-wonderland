@@ -88,22 +88,24 @@ const App = () => {
   return (
     <>
       <h1>Tic Tac Toe</h1>
+      <div className="choose">
       <h4> Player 1, choose a mark:</h4>
-      <button
+
+      <button className="button"
         onClick={() => {
           choose1("🦉");
         }}
       >
         🦉
       </button>
-      <button
+      <button className="button"
         onClick={() => {
           choose1("🐝");
         }}
       >
         🐝
       </button>
-      <button
+      <button className="button"
         onClick={() => {
           choose1("🐞");
         }}
@@ -112,27 +114,28 @@ const App = () => {
       </button>
 
       <h4> Player 2, choose a mark:</h4>
-      <button
+      <button className="button"
         onClick={() => {
           choose2("🍁");
         }}
       >
         🍁
       </button>
-      <button
+      <button className="button"
         onClick={() => {
           choose2("🌸");
         }}
       >
         🌸
       </button>
-      <button
+      <button className="button"
         onClick={() => {
           choose2("🍄");
         }}
       >
         🍄
       </button>
+      </div>
       <p>Your move: {user}</p>
       <div className="gameboard">
         {squares.map((value, index) => {

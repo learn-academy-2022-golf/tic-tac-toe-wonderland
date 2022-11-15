@@ -47,3 +47,8 @@ h1 {
   font-size: 50px;
   color: beige
 }
+
+.choose {
+margin: 0 auto;
+text-align: center;
+}
