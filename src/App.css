@@ -1,7 +1,6 @@
 * {
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
   background-color: rosybrown;
-
 }
 p {
   text-align: center;
@@ -20,18 +19,15 @@ h1 {
   color: beige;
 
   font-size: 60px;
-
 }
 
 .gameboard {
-  
   display: flex;
   flex-wrap: wrap;
   width: 330px;
   margin: 0 auto;
   font-size: 75px;
   text-align: center;
-
 }
 
 .button {
@@ -44,15 +40,15 @@ h1 {
 
 .winner {
   font-size: 50px;
-  color: beige
+  color: beige;
 }
 
 .choose {
-margin: 0 auto;
-text-align: center;
-display: flex;
-justify-content: space-around;
-width: 550px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  width: 550px;
 }
 
 .yourmove {

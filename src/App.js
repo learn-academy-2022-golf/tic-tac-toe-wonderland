@@ -56,12 +56,12 @@ const App = () => {
 
   const choose1 = (string) => {
     setuser1Mark(string);
-    setUser(string)
+    setUser(string);
   };
 
   const choose2 = (string) => {
     setuser2Mark(string);
-    setUser(string)
+    setUser(string);
   };
 
   const gamePlay = (index) => {
@@ -90,68 +90,76 @@ const App = () => {
       <h1>Tic Tac Toe</h1>
       <div className="choose">
         <div>
-      <p> Player 1, choose a mark:</p>
+          <p> Player 1, choose a mark:</p>
 
-      <button className="button"
-        onClick={() => {
-          choose1("🦋");
-        }}
-      >
-        🦋
-      </button>
-      <button className="button"
-        onClick={() => {
-          choose1("🐝");
-        }}
-      >
-        🐝
-      </button>
-      <button className="button"
-        onClick={() => {
-          choose1("🐞");
-        }}
-      >
-        🐞
-      </button>
-      <button className="button"
-        onClick={() => {
-          choose1("🪲");
-        }}
-      >
-        🪲
-      </button>
-      </div>
-      <div>
-      <p> Player 2, choose a mark:</p>
-      <button className="button"
-        onClick={() => {
-          choose2("🦉");
-        }}
-      >
-        🦉
-      </button>
-      <button className="button"
-        onClick={() => {
-          choose2("🐿");
-        }}
-      >
-        🐿
-      </button>
-      <button className="button"
-        onClick={() => {
-          choose2("🦔");
-        }}
-      >
-        🦔
-      </button>
-      <button className="button"
-        onClick={() => {
-          choose2("🦦");
-        }}
-      >
-        🦦
-      </button>
-      </div>
+          <button
+            className="button"
+            onClick={() => {
+              choose1("🦋");
+            }}
+          >
+            🦋
+          </button>
+          <button
+            className="button"
+            onClick={() => {
+              choose1("🐝");
+            }}
+          >
+            🐝
+          </button>
+          <button
+            className="button"
+            onClick={() => {
+              choose1("🐞");
+            }}
+          >
+            🐞
+          </button>
+          <button
+            className="button"
+            onClick={() => {
+              choose1("🪲");
+            }}
+          >
+            🪲
+          </button>
+        </div>
+        <div>
+          <p> Player 2, choose a mark:</p>
+          <button
+            className="button"
+            onClick={() => {
+              choose2("🦉");
+            }}
+          >
+            🦉
+          </button>
+          <button
+            className="button"
+            onClick={() => {
+              choose2("🐿");
+            }}
+          >
+            🐿
+          </button>
+          <button
+            className="button"
+            onClick={() => {
+              choose2("🦔");
+            }}
+          >
+            🦔
+          </button>
+          <button
+            className="button"
+            onClick={() => {
+              choose2("🦦");
+            }}
+          >
+            🦦
+          </button>
+        </div>
       </div>
       <p className="yourmove">Your move: {user}</p>
       <div className="gameboard">
