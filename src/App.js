@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Square from "./components/Square";
 import "./App.css";
+import Button from "./components/Button";
 
 const App = () => {
-  // const [squares, setSquares] = useState(Array(9).fill(null))
   const emptyArray = ["", "", "", "", "", "", "", "", ""];
 
   const [squares, setSquares] = useState(emptyArray);
 
-  const [user, setUser] = useState("X");
+  const [user1Mark, setuser1Mark] = useState("X");
 
-  const checkWinner = () => {
+  const [user2Mark, setuser2Mark] = useState("O");
+
+  const [user, setUser] = useState(user1Mark);
+
+  const [winner, setWinner] = useState("");
+
+  const checkWinner = (array) => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -21,39 +27,113 @@ const App = () => {
       [0, 4, 8],
       [2, 4, 6],
     ];
+    if (array.includes("") === false) {
+      setWinner("Tie game! No moves left.");
+    }
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      console.log(squares[a]);
-      if (squares[a] === "X" && squares[b] === "X" && squares[c] === "X") {
-        alert(`Congrats! The winner is X`);
-      } else if (
-        squares[a] === "O" &&
-        squares[b] === "O" &&
-        squares[c] === "O"
+      if (
+        array[a] === user1Mark &&
+        array[b] === user1Mark &&
+        array[c] === user1Mark
       ) {
-        alert(`Congrats! The winner is O`);
+        setWinner(`${user1Mark} is the winner!`);
+      } else if (
+        array[a] === user2Mark &&
+        array[b] === user2Mark &&
+        array[c] === user2Mark
+      ) {
+        setWinner(`${user2Mark}is the winner!`);
       }
     }
   };
 
+  const refresh = () => {
+    setSquares(emptyArray);
+    setUser(user1Mark);
+    setWinner("");
+  };
+
+  const choose1 = (string) => {
+    setuser1Mark(string);
+    setUser(string)
+  };
+
+  const choose2 = (string) => {
+    setuser2Mark(string);
+    setUser(string)
+  };
+
   const gamePlay = (index) => {
     let updatedSquares = [...squares];
-
-    if (updatedSquares[index] !== "") {
-      alert("please choose another box");
-    } else if (user === "X") {
-      updatedSquares[index] = "X";
-      setUser("O");
-    } else if (user === "O") {
-      updatedSquares[index] = "O";
-      setUser("X");
+    if (winner !== "") {
+      alert("This game is over! Please click Restart to start a new game.");
+    } else if (updatedSquares.includes("") === false) {
+      setWinner("Tie game! No moves left.");
+    } else if (updatedSquares[index] !== "") {
+      alert("Oops! Please choose another box");
+    } else if (user === user1Mark) {
+      updatedSquares[index] = user1Mark;
+      setUser(user2Mark);
+      setSquares(updatedSquares);
+    } else if (user === user2Mark) {
+      updatedSquares[index] = user2Mark;
+      setUser(user1Mark);
+      setSquares(updatedSquares);
     }
-    setSquares(updatedSquares);
   };
+
+  useEffect(() => checkWinner(squares));
 
   return (
     <>
       <h1>Tic Tac Toe</h1>
+      <h4> Player 1, choose a mark:</h4>
+      <button
+        onClick={() => {
+          choose1("🦉");
+        }}
+      >
+        🦉
+      </button>
+      <button
+        onClick={() => {
+          choose1("🐝");
+        }}
+      >
+        🐝
+      </button>
+      <button
+        onClick={() => {
+          choose1("🐞");
+        }}
+      >
+        🐞
+      </button>
+
+      <h4> Player 2, choose a mark:</h4>
+      <button
+        onClick={() => {
+          choose2("🍁");
+        }}
+      >
+        🍁
+      </button>
+      <button
+        onClick={() => {
+          choose2("🌸");
+        }}
+      >
+        🌸
+      </button>
+      <button
+        onClick={() => {
+          choose2("🍄");
+        }}
+      >
+        🍄
+      </button>
+      <p>Your move: {user}</p>
       <div className="gameboard">
         {squares.map((value, index) => {
           return (
@@ -62,10 +142,11 @@ const App = () => {
               gamePlay={gamePlay}
               key={index}
               index={index}
-              checkWinner={checkWinner}
             />
           );
         })}
+        <Button refresh={refresh} />
+        <div className="winner">{winner}</div>
       </div>
     </>
   );
