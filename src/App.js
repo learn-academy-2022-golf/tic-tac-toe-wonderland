@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Square from "./components/Square";
 import "./App.css";
 
@@ -10,7 +10,9 @@ const App = () => {
 
   const [user, setUser] = useState("X");
 
-  const checkWinner = () => {
+  const [winner, setWinner] = useState("");
+
+  const checkWinner = (array) => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -23,20 +25,17 @@ const App = () => {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      console.log(squares[a]);
-      if (squares[a] === "X" && squares[b] === "X" && squares[c] === "X") {
-        alert(`Congrats! The winner is X`);
-      } else if (
-        squares[a] === "O" &&
-        squares[b] === "O" &&
-        squares[c] === "O"
-      ) {
-        alert(`Congrats! The winner is O`);
+      if (array[a] === "X" && array[b] === "X" && array[c] === "X") {
+        setWinner("X is the winner!");
+      } else if (array[a] === "O" && array[b] === "O" && array[c] === "O") {
+        setWinner("O is the winner!");
       }
+
     }
   };
 
   const gamePlay = (index) => {
+    checkWinner(squares);
     let updatedSquares = [...squares];
 
     if (updatedSquares[index] !== "") {
@@ -51,6 +50,10 @@ const App = () => {
     setSquares(updatedSquares);
   };
 
+
+  useEffect(() => checkWinner(squares));
+
+
   return (
     <>
       <h1>Tic Tac Toe</h1>
@@ -62,10 +65,11 @@ const App = () => {
               gamePlay={gamePlay}
               key={index}
               index={index}
-              checkWinner={checkWinner}
+              // checkWinner={checkWinner}
             />
           );
         })}
+        {winner}
       </div>
     </>
   );
