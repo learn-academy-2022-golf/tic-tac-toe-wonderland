@@ -43,7 +43,7 @@ const App = () => {
         array[b] === user2Mark &&
         array[c] === user2Mark
       ) {
-        setWinner(`${user2Mark}is the winner!`);
+        setWinner(`${user2Mark} is the winner!`);
       }
     }
   };
